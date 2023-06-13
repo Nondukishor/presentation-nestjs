@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+"""Users """
+type Users {
+  id: ID!
+  email: String!
+  password: String!
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type Query {
+  user(id: String!): Users!
+  users(skip: Int! = 0, take: Int! = 25): [Users!]!
+}
+
+type Mutation {
+  addUser(newUserData: NewUserInput!): Users!
+  removeUser(id: String!): Boolean!
+}
+
+input NewUserInput {
+  id: String!
+  name: String
+  email: String!
+  password: String!
+}
+
+type Subscription {
+  userAdded: Users!
+}
